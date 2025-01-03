@@ -1,10 +1,10 @@
 package v1
 
 import (
+	"github.com/djpken/go-helper/pkg/log"
+	"github.com/djpken/go-helper/pkg/middleware"
+	"github.com/djpken/go-helper/pkg/query"
 	"github.com/gin-gonic/gin"
-	"github.com/piupuer/go-helper/pkg/log"
-	"github.com/piupuer/go-helper/pkg/middleware"
-	"github.com/piupuer/go-helper/pkg/query"
 	"net/http"
 )
 

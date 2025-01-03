@@ -1,8 +1,8 @@
 package query
 
 import (
-	"github.com/piupuer/go-helper/pkg/log"
-	"github.com/piupuer/go-helper/pkg/resp"
+	"github.com/djpken/go-helper/pkg/log"
+	"github.com/djpken/go-helper/pkg/resp"
 	"reflect"
 )
 

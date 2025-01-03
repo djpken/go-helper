@@ -1,10 +1,10 @@
 package query
 
 import (
-	"github.com/piupuer/go-helper/ms"
-	"github.com/piupuer/go-helper/pkg/constant"
-	"github.com/piupuer/go-helper/pkg/tracing"
-	"github.com/piupuer/go-helper/pkg/utils"
+	"github.com/djpken/go-helper/ms"
+	"github.com/djpken/go-helper/pkg/constant"
+	"github.com/djpken/go-helper/pkg/tracing"
+	"github.com/djpken/go-helper/pkg/utils"
 )
 
 func (rd Redis) FindMenu(currentRoleId, currentRoleSort uint) (tree []ms.SysMenu) {

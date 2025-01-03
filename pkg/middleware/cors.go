@@ -1,9 +1,9 @@
 package middleware
 
 import (
+	"github.com/djpken/go-helper/pkg/tracing"
+	"github.com/djpken/go-helper/pkg/utils"
 	"github.com/gin-gonic/gin"
-	"github.com/piupuer/go-helper/pkg/tracing"
-	"github.com/piupuer/go-helper/pkg/utils"
 	"net/http"
 	"strings"
 )

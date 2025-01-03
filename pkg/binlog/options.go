@@ -2,9 +2,9 @@ package binlog
 
 import (
 	"context"
+	"github.com/djpken/go-helper/pkg/utils"
 	"github.com/go-redis/redis/v8"
 	"github.com/go-sql-driver/mysql"
-	"github.com/piupuer/go-helper/pkg/utils"
 	"gorm.io/gorm"
 )
 

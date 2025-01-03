@@ -3,10 +3,10 @@ package middleware
 import (
 	"bytes"
 	"fmt"
+	"github.com/djpken/go-helper/pkg/constant"
+	"github.com/djpken/go-helper/pkg/log"
+	"github.com/djpken/go-helper/pkg/tracing"
 	"github.com/gin-gonic/gin"
-	"github.com/piupuer/go-helper/pkg/constant"
-	"github.com/piupuer/go-helper/pkg/log"
-	"github.com/piupuer/go-helper/pkg/tracing"
 	"go.opentelemetry.io/otel/attribute"
 	"time"
 )

@@ -1,6 +1,6 @@
 package req
 
-import "github.com/piupuer/go-helper/pkg/resp"
+import "github.com/djpken/go-helper/pkg/resp"
 
 type Machine struct {
 	Id        uint   `json:"id" form:"id"`

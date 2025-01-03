@@ -3,11 +3,11 @@ package middleware
 import (
 	"context"
 	"fmt"
+	"github.com/djpken/go-helper/pkg/log"
+	"github.com/djpken/go-helper/pkg/resp"
+	"github.com/djpken/go-helper/pkg/tracing"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
-	"github.com/piupuer/go-helper/pkg/log"
-	"github.com/piupuer/go-helper/pkg/resp"
-	"github.com/piupuer/go-helper/pkg/tracing"
 	"strings"
 	"time"
 )

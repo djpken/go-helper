@@ -1,10 +1,10 @@
 package router
 
 import (
+	v1 "github.com/djpken/go-helper/api/v1"
+	"github.com/djpken/go-helper/pkg/middleware"
+	"github.com/djpken/go-helper/pkg/query"
 	"github.com/gin-gonic/gin"
-	v1 "github.com/piupuer/go-helper/api/v1"
-	"github.com/piupuer/go-helper/pkg/middleware"
-	"github.com/piupuer/go-helper/pkg/query"
 )
 
 type Router struct {

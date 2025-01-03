@@ -2,9 +2,9 @@ package resp
 
 import (
 	"fmt"
+	"github.com/djpken/go-helper/pkg/constant"
+	"github.com/djpken/go-helper/pkg/utils"
 	"github.com/golang-module/carbon/v2"
-	"github.com/piupuer/go-helper/pkg/constant"
-	"github.com/piupuer/go-helper/pkg/utils"
 )
 
 type Time struct {

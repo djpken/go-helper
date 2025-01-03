@@ -3,8 +3,8 @@ package delay
 import (
 	"context"
 	"fmt"
-	"github.com/piupuer/go-helper/pkg/constant"
-	"github.com/piupuer/go-helper/pkg/utils"
+	"github.com/djpken/go-helper/pkg/constant"
+	"github.com/djpken/go-helper/pkg/utils"
 	"gorm.io/gorm"
 	"strings"
 	"time"

@@ -1,7 +1,7 @@
 package video
 
 import (
-	"github.com/piupuer/go-helper/pkg/log"
+	"github.com/djpken/go-helper/pkg/log"
 	"github.com/shopspring/decimal"
 	"os/exec"
 	"regexp"

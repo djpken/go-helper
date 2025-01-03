@@ -1,10 +1,10 @@
 package middleware
 
 import (
+	"github.com/djpken/go-helper/pkg/constant"
+	"github.com/djpken/go-helper/pkg/resp"
+	"github.com/djpken/go-helper/pkg/tracing"
 	"github.com/gin-gonic/gin"
-	"github.com/piupuer/go-helper/pkg/constant"
-	"github.com/piupuer/go-helper/pkg/resp"
-	"github.com/piupuer/go-helper/pkg/tracing"
 	"github.com/thoas/go-funk"
 	"gorm.io/gorm"
 	"net/http"

@@ -1,7 +1,7 @@
 package req
 
 import (
-	"github.com/piupuer/go-helper/pkg/utils"
+	"github.com/djpken/go-helper/pkg/utils"
 )
 
 type Ids struct {

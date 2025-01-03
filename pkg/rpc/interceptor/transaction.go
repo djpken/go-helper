@@ -2,7 +2,7 @@ package interceptor
 
 import (
 	"context"
-	"github.com/piupuer/go-helper/pkg/constant"
+	"github.com/djpken/go-helper/pkg/constant"
 	"google.golang.org/grpc"
 )
 

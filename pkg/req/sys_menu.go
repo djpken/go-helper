@@ -1,6 +1,6 @@
 package req
 
-import "github.com/piupuer/go-helper/pkg/resp"
+import "github.com/djpken/go-helper/pkg/resp"
 
 type Menu struct {
 	Name       string `json:"name" form:"name"`

@@ -1,8 +1,8 @@
 package router
 
 import (
-	v1 "github.com/piupuer/go-helper/api/v1"
-	"github.com/piupuer/go-helper/pkg/query"
+	v1 "github.com/djpken/go-helper/api/v1"
+	"github.com/djpken/go-helper/pkg/query"
 )
 
 func (rt Router) Message() *query.MessageHub {

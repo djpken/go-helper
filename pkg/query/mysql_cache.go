@@ -3,8 +3,8 @@ package query
 import (
 	"context"
 	"fmt"
-	"github.com/piupuer/go-helper/ms"
-	"github.com/piupuer/go-helper/pkg/utils"
+	"github.com/djpken/go-helper/ms"
+	"github.com/djpken/go-helper/pkg/utils"
 )
 
 const (

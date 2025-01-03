@@ -3,7 +3,7 @@ package utils
 import (
 	"bytes"
 	"fmt"
-	"github.com/piupuer/go-helper/pkg/log"
+	"github.com/djpken/go-helper/pkg/log"
 	"github.com/pkg/errors"
 	"golang.org/x/crypto/ssh"
 	"net"

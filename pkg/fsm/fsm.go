@@ -2,13 +2,13 @@ package fsm
 
 import (
 	"fmt"
+	"github.com/djpken/go-helper/pkg/constant"
+	"github.com/djpken/go-helper/pkg/i18n"
+	"github.com/djpken/go-helper/pkg/log"
+	"github.com/djpken/go-helper/pkg/req"
+	"github.com/djpken/go-helper/pkg/resp"
+	"github.com/djpken/go-helper/pkg/utils"
 	"github.com/looplab/fsm"
-	"github.com/piupuer/go-helper/pkg/constant"
-	"github.com/piupuer/go-helper/pkg/i18n"
-	"github.com/piupuer/go-helper/pkg/log"
-	"github.com/piupuer/go-helper/pkg/req"
-	"github.com/piupuer/go-helper/pkg/resp"
-	"github.com/piupuer/go-helper/pkg/utils"
 	"github.com/pkg/errors"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
@@ -925,14 +925,16 @@ func (fs *Fsm) findEventDesc(machineId uint) (rp []fsm.EventDesc) {
 
 // batch create events
 // example(two approval level):
-// []req.FsmCreateEvent{
-//   {
-//     Name: "L1",
-//   }
-//   {
-//     Name: "L2",
-//   }
-// }
+//
+//	[]req.FsmCreateEvent{
+//	  {
+//	    Name: "L1",
+//	  }
+//	  {
+//	    Name: "L2",
+//	  }
+//	}
+//
 // automatic generation by event sort(it is assumed that the SubmitterName=L0) finite state machine table:
 // Machine.SubmitConfirm = false
 // Current            / Source                    / Destination

@@ -3,8 +3,8 @@ package migrate
 import (
 	"database/sql"
 	"fmt"
+	"github.com/djpken/go-helper/pkg/log"
 	m "github.com/go-sql-driver/mysql"
-	"github.com/piupuer/go-helper/pkg/log"
 	migrate "github.com/rubenv/sql-migrate"
 	"strings"
 )
