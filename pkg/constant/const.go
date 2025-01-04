@@ -18,7 +18,8 @@ const (
 
 // mode
 const (
-	Dev   = "development"
-	Stage = "staging"
-	Prod  = "production"
+	DEV   = "dev"
+	UAT   = "uat"
+	STAGE = "stage"
+	PROD  = "prod"
 )
