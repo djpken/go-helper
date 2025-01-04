@@ -1,6 +1,7 @@
 package query
 
 import (
+	"context"
 	"fmt"
 	"github.com/djpken/go-helper/pkg/log"
 	localUtils "github.com/djpken/go-helper/pkg/utils"
@@ -49,13 +50,13 @@ func (rd *Redis) processPreload() {
 			}
 
 			if len(rels) > 0 {
-				preload(rd, rels)
+				preload(rd.Ctx, rd, rels)
 			}
 		}
 	}
 }
 
-func preload(db *Redis, rels []*schema.Relationship) {
+func preload(ctx context.Context, db *Redis, rels []*schema.Relationship) {
 	var (
 		reflectValue     = db.Statement.ReflectValue
 		rel              = rels[len(rels)-1]
@@ -67,7 +68,7 @@ func preload(db *Redis, rels []*schema.Relationship) {
 	)
 
 	if len(rels) > 1 {
-		reflectValue = schema.GetRelationsValues(reflectValue, rels[:len(rels)-1])
+		reflectValue = schema.GetRelationsValues(ctx, reflectValue, rels[:len(rels)-1])
 	}
 
 	ins := db.Session()
@@ -90,7 +91,7 @@ func preload(db *Redis, rels []*schema.Relationship) {
 			}
 		}
 
-		joinIdentityMap, joinForeignValues := schema.GetIdentityFieldValuesMap(reflectValue, foreignFields)
+		joinIdentityMap, joinForeignValues := schema.GetIdentityFieldValuesMap(ctx, reflectValue, foreignFields)
 		if len(joinForeignValues) == 0 {
 			return
 		}
@@ -153,7 +154,7 @@ func preload(db *Redis, rels []*schema.Relationship) {
 			}
 		}
 
-		_, foreignValues = schema.GetIdentityFieldValuesMap(joinResults, joinRelForeignFields)
+		_, foreignValues = schema.GetIdentityFieldValuesMap(ctx, joinResults, joinRelForeignFields)
 	} else {
 		// one2many or many2one
 		for _, ref := range rel.References {
@@ -170,7 +171,7 @@ func preload(db *Redis, rels []*schema.Relationship) {
 			}
 		}
 
-		identityMap, foreignValues = schema.GetIdentityFieldValuesMap(reflectValue, foreignFields)
+		identityMap, foreignValues = schema.GetIdentityFieldValuesMap(ctx, reflectValue, foreignFields)
 		if len(foreignValues) == 0 {
 			return
 		}
@@ -202,17 +203,17 @@ func preload(db *Redis, rels []*schema.Relationship) {
 	case reflect.Struct:
 		switch rel.Type {
 		case schema.HasMany, schema.Many2Many:
-			rel.Field.Set(reflectValue, reflect.MakeSlice(rel.Field.IndirectFieldType, 0, 0).Interface())
+			rel.Field.Set(ctx, reflectValue, reflect.MakeSlice(rel.Field.IndirectFieldType, 0, 0).Interface())
 		default:
-			rel.Field.Set(reflectValue, reflect.New(rel.Field.FieldType).Interface())
+			rel.Field.Set(ctx, reflectValue, reflect.New(rel.Field.FieldType).Interface())
 		}
 	case reflect.Slice, reflect.Array:
 		for i := 0; i < reflectValue.Len(); i++ {
 			switch rel.Type {
 			case schema.HasMany, schema.Many2Many:
-				rel.Field.Set(reflectValue.Index(i), reflect.MakeSlice(rel.Field.IndirectFieldType, 0, 0).Interface())
+				rel.Field.Set(ctx, reflectValue.Index(i), reflect.MakeSlice(rel.Field.IndirectFieldType, 0, 0).Interface())
 			default:
-				rel.Field.Set(reflectValue.Index(i), reflect.New(rel.Field.FieldType).Interface())
+				rel.Field.Set(ctx, reflectValue.Index(i), reflect.New(rel.Field.FieldType).Interface())
 			}
 		}
 	}
@@ -220,11 +221,11 @@ func preload(db *Redis, rels []*schema.Relationship) {
 	for i := 0; i < reflectResults.Len(); i++ {
 		elem := reflectResults.Index(i)
 		for idx, field := range relForeignFields {
-			fieldValues[idx], _ = field.ValueOf(elem)
+			fieldValues[idx], _ = field.ValueOf(ctx, elem)
 		}
 
 		for _, data := range identityMap[utils.ToStringKey(fieldValues...)] {
-			reflectFieldValue := rel.Field.ReflectValueOf(data)
+			reflectFieldValue := rel.Field.ReflectValueOf(ctx, data)
 			if reflectFieldValue.Kind() == reflect.Ptr && reflectFieldValue.IsNil() {
 				reflectFieldValue.Set(reflect.New(rel.Field.FieldType.Elem()))
 			}
@@ -232,12 +233,12 @@ func preload(db *Redis, rels []*schema.Relationship) {
 			reflectFieldValue = reflect.Indirect(reflectFieldValue)
 			switch reflectFieldValue.Kind() {
 			case reflect.Struct:
-				rel.Field.Set(data, reflectResults.Index(i).Interface())
+				rel.Field.Set(ctx, data, reflectResults.Index(i).Interface())
 			case reflect.Slice, reflect.Array:
 				if reflectFieldValue.Type().Elem().Kind() == reflect.Ptr {
-					rel.Field.Set(data, reflect.Append(reflectFieldValue, elem).Interface())
+					rel.Field.Set(ctx, data, reflect.Append(reflectFieldValue, elem).Interface())
 				} else {
-					rel.Field.Set(data, reflect.Append(reflectFieldValue, elem.Elem()).Interface())
+					rel.Field.Set(ctx, data, reflect.Append(reflectFieldValue, elem.Elem()).Interface())
 				}
 			}
 		}
