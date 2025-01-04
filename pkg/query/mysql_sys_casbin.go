@@ -17,7 +17,7 @@ func (my MySql) FindRoleCasbin(c ms.SysRoleCasbin) []ms.SysRoleCasbin {
 		log.WithContext(my.Ctx).Warn("casbin enforcer is empty")
 		return cs
 	}
-	policies := my.ops.enforcer.GetFilteredPolicy(0, c.Keyword, c.Path, c.Method)
+	policies, _ := my.ops.enforcer.GetFilteredPolicy(0, c.Keyword, c.Path, c.Method)
 	for _, policy := range policies {
 		cs = append(cs, ms.SysRoleCasbin{
 			Keyword: policy[0],
@@ -85,9 +85,9 @@ func FindCasbinByRoleKeyword(enforcer *casbin.Enforcer, roleKeyword string) (rp 
 	list := make([][]string, 0)
 	if roleKeyword != "" {
 		// filter rules by keyword
-		list = enforcer.GetFilteredPolicy(0, roleKeyword)
+		list, _ = enforcer.GetFilteredPolicy(0, roleKeyword)
 	} else {
-		list = enforcer.GetFilteredPolicy(0)
+		list, _ = enforcer.GetFilteredPolicy(0)
 	}
 
 	var added []string
