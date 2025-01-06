@@ -52,6 +52,7 @@ require (
 	github.com/BurntSushi/toml v1.0.0 // indirect
 	github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible // indirect
 	github.com/Workiva/go-datastructures v1.0.53 // indirect
+	github.com/antonfisher/nested-logrus-formatter v1.3.1 // indirect
 	github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f // indirect
 	github.com/bmatcuk/doublestar/v4 v4.6.1 // indirect
 	github.com/casbin/govaluate v1.3.0 // indirect

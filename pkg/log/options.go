@@ -34,6 +34,7 @@ type Options struct {
 	output         io.Writer
 	category       string
 	json           bool
+	nested         bool
 	lineNum        bool
 	lineNumPrefix  string
 	lineNumLevel   int
@@ -62,6 +63,11 @@ func WithCategory(s string) func(*Options) {
 func WithJson(flag bool) func(*Options) {
 	return func(options *Options) {
 		getOptionsOrSetDefault(options).json = flag
+	}
+}
+func WithNested(flag bool) func(*Options) {
+	return func(options *Options) {
+		getOptionsOrSetDefault(options).nested = flag
 	}
 }
 

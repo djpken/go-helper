@@ -1,6 +1,9 @@
 package log
 
-import "github.com/sirupsen/logrus"
+import (
+	nested "github.com/antonfisher/nested-logrus-formatter"
+	"github.com/sirupsen/logrus"
+)
 
 type logrusLog struct {
 	log *logrus.Entry
@@ -10,8 +13,14 @@ type logrusLog struct {
 func newLogrus(ops *Options) *logrusLog {
 	ll := logrus.New()
 	ll.SetLevel(loggerToLogrusLevel(ops.level))
+
 	if ops.json {
 		ll.SetFormatter(&logrus.JSONFormatter{})
+	} else if ops.nested {
+		ll.SetFormatter(&nested.Formatter{
+			HideKeys:    true,
+			FieldsOrder: []string{"component", "category"},
+		})
 	} else {
 		ll.SetFormatter(&logrus.TextFormatter{
 			FullTimestamp: true,
