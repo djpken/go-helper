@@ -3,6 +3,7 @@ package log
 import (
 	nested "github.com/antonfisher/nested-logrus-formatter"
 	"github.com/sirupsen/logrus"
+	"time"
 )
 
 type logrusLog struct {
@@ -18,8 +19,9 @@ func newLogrus(ops *Options) *logrusLog {
 		ll.SetFormatter(&logrus.JSONFormatter{})
 	} else if ops.nested {
 		ll.SetFormatter(&nested.Formatter{
-			HideKeys:    true,
-			FieldsOrder: []string{"component", "category"},
+			TimestampFormat: time.RFC3339,
+			HideKeys:        true,
+			FieldsOrder:     []string{"component", "category"},
 		})
 	} else {
 		ll.SetFormatter(&logrus.TextFormatter{
