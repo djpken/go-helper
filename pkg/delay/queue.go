@@ -343,7 +343,7 @@ func (qu Queue) clearArchived() {
 	}
 	ctx := context.Background()
 	for _, item := range list {
-		last := carbon.Time2Carbon(item.LastFailedAt)
+		last := carbon.CreateFromStdTime(item.LastFailedAt)
 		if !last.IsZero() && item.Retried < item.MaxRetry {
 			continue
 		}

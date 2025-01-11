@@ -239,7 +239,7 @@ func findRow(ops Options, table string, model interface{}) (list []map[string]in
 			if exists && val != nil {
 				switch val.(type) {
 				case time.Time:
-					local := carbon.Time2Carbon(val.(time.Time))
+					local := carbon.CreateFromStdTime(val.(time.Time))
 					s = local.String()
 				case []uint8:
 					vs := string(val.([]uint8))

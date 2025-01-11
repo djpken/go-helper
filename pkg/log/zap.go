@@ -18,7 +18,7 @@ func newZap(ops *Options) *zapLog {
 	enConfig := zap.NewProductionEncoderConfig()
 	enConfig.EncodeLevel = zapcore.CapitalColorLevelEncoder
 	enConfig.EncodeTime = func(t time.Time, enc zapcore.PrimitiveArrayEncoder) {
-		enc.AppendString(carbon.Time2Carbon(t).ToRfc3339String())
+		enc.AppendString(carbon.CreateFromStdTime(t).ToRfc3339String())
 	}
 	encoder := zapcore.NewConsoleEncoder(enConfig)
 	if ops.json {
