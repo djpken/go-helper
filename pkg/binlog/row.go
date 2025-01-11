@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"github.com/djpken/go-helper/pkg/log"
 	"github.com/djpken/go-helper/pkg/utils"
+	"github.com/dromara/carbon/v2"
 	"github.com/go-mysql-org/go-mysql/canal"
 	"github.com/go-mysql-org/go-mysql/schema"
-	"github.com/golang-module/carbon/v2"
 )
 
 const (

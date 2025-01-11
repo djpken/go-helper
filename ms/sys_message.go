@@ -1,6 +1,6 @@
 package ms
 
-import "github.com/golang-module/carbon/v2"
+import "github.com/dromara/carbon/v2"
 
 const (
 	SysMessageTypeOneToOne     uint   = 0

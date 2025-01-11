@@ -1,6 +1,6 @@
 package req
 
-import "github.com/golang-module/carbon/v2"
+import "github.com/dromara/carbon/v2"
 
 type UserStatus struct {
 	Username   string `json:"username" form:"username"`

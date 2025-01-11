@@ -7,7 +7,7 @@ import (
 	"github.com/djpken/go-helper/pkg/resp"
 	"github.com/djpken/go-helper/pkg/tracing"
 	"github.com/djpken/go-helper/pkg/utils"
-	"github.com/golang-module/carbon/v2"
+	"github.com/dromara/carbon/v2"
 	"github.com/pkg/errors"
 	"strings"
 	"time"

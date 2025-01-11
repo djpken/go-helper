@@ -1,11 +1,13 @@
 module github.com/djpken/go-helper
 
-go 1.17
+go 1.23
 
 require (
 	github.com/aliyun/aliyun-oss-go-sdk v2.2.0+incompatible
+	github.com/antonfisher/nested-logrus-formatter v1.3.1
 	github.com/appleboy/gin-jwt/v2 v2.8.0
 	github.com/casbin/casbin/v2 v2.103.0
+	github.com/dromara/carbon/v2 v2.5.2
 	github.com/foobaz/lossypng v0.0.0-20200814224715-48fa8819852a
 	github.com/gin-gonic/gin v1.7.7
 	github.com/go-mysql-org/go-mysql v1.4.0
@@ -14,7 +16,6 @@ require (
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/go-sql-driver/mysql v1.6.0
 	github.com/golang-jwt/jwt/v4 v4.2.0
-	github.com/golang-module/carbon/v2 v2.1.2
 	github.com/google/uuid v1.3.0
 	github.com/gorilla/websocket v1.4.2
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
@@ -38,8 +39,8 @@ require (
 	go.opentelemetry.io/otel v1.6.3
 	go.opentelemetry.io/otel/trace v1.6.3
 	go.uber.org/zap v1.19.1
-	golang.org/x/crypto v0.0.0-20211215153901-e495a2d5b3d3
-	golang.org/x/text v0.14.0
+	golang.org/x/crypto v0.32.0
+	golang.org/x/text v0.21.0
 	google.golang.org/grpc v1.43.0
 	google.golang.org/protobuf v1.28.0
 	gopkg.in/go-playground/validator.v9 v9.31.0
@@ -50,9 +51,7 @@ require (
 
 require (
 	github.com/BurntSushi/toml v1.0.0 // indirect
-	github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible // indirect
 	github.com/Workiva/go-datastructures v1.0.53 // indirect
-	github.com/antonfisher/nested-logrus-formatter v1.3.1 // indirect
 	github.com/baiyubin/aliyun-sts-go-sdk v0.0.0-20180326062324-cfa1a18b161f // indirect
 	github.com/bmatcuk/doublestar/v4 v4.6.1 // indirect
 	github.com/casbin/govaluate v1.3.0 // indirect
@@ -91,11 +90,10 @@ require (
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	golang.org/x/image v0.0.0-20190802002840-cff245a6509b // indirect
-	golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2 // indirect
-	golang.org/x/sys v0.5.0 // indirect
+	golang.org/x/net v0.34.0 // indirect
+	golang.org/x/sys v0.29.0 // indirect
 	golang.org/x/time v0.0.0-20220411224347-583f2d630306 // indirect
 	google.golang.org/genproto v0.0.0-20210602131652-f16073e35f0c // indirect
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
-	gopkg.in/ini.v1 v1.62.0 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.0.0 // indirect
 )

@@ -2,7 +2,7 @@ package ms
 
 import (
 	"context"
-	"github.com/golang-module/carbon/v2"
+	"github.com/dromara/carbon/v2"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	"gorm.io/gorm/schema"

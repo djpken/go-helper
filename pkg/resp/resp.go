@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/djpken/go-helper/pkg/constant"
 	"github.com/djpken/go-helper/pkg/utils"
-	"github.com/golang-module/carbon/v2"
+	"github.com/dromara/carbon/v2"
 )
 
 type Time struct {
