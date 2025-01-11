@@ -360,7 +360,7 @@ func (c *MessageClient) heartBeat() {
 	for {
 		select {
 		case <-ticker.C:
-			last := time.Now().Sub(c.LastActiveTime.Carbon2Time())
+			last := time.Now().Sub(c.LastActiveTime.StdTime())
 			if c.RetryCount > heartBeatMaxRetryCount {
 				panic(fmt.Sprintf("[message][heartbeat]retry sending heartbeat for %d times without response", c.RetryCount))
 			}

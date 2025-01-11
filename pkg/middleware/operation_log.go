@@ -112,7 +112,7 @@ func OperationLog(options ...func(*OperationLogOptions)) gin.HandlerFunc {
 				Header:    utils.Struct2Json(header),
 				Body:      reqBody,
 				Params:    utils.Struct2Json(reqParams),
-				Latency:   endTime.Carbon2Time().Sub(startTime.Carbon2Time()),
+				Latency:   endTime.StdTime().Sub(startTime.StdTime()),
 				UserAgent: c.Request.UserAgent(),
 			}
 			record.CreatedAt = carbon.DateTime{
